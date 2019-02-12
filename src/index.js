@@ -142,6 +142,7 @@ export default class extends Component {
     activeDotStyle: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     dotColor: PropTypes.string,
     activeDotColor: PropTypes.string,
+    offsetX: PropTypes.number,
     /**
      * Called when the index has changed because the user swiped.
      */
@@ -287,6 +288,10 @@ export default class extends Component {
     if (state.total === initState.total && !props.updateIndex) {
       // retain the offset
       initState.offset = this.internals.offset;
+    }
+
+    if (props.offsetX) {
+      initState.offset.x = props.offsetX;
     }
 
     this.internals = {
